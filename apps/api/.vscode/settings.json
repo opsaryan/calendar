@@ -1,0 +1,25 @@
+{
+  // Bind the Kubernetes API schema to manifests in this repo.
+  // Files that are NOT Kubernetes API objects (kind cluster configs)
+  // override this with a `# yaml-language-server: $schema=...` modeline
+  // on line 1 — a modeline short-circuits this mapping entirely.
+  "yaml.schemas": {
+    "kubernetes": ["**/*.yaml", "**/*.yml"]
+  },
+
+  // Required for CRDs. The "kubernetes" mapping above resolves core API
+  // objects only; for any other apiVersion group the server falls through
+  // to the datreeio catalog at ${url}/${group}/${kind}_${version}.json.
+  // With this false, Gateway API (gateway.networking.k8s.io/v1) is checked
+  // against the core schema and every field is flagged as unknown.
+  // Groups not in the catalog still log "Unable to load schema".
+  "yaml.kubernetesCRDStore.enable": true,
+
+  // Pin the API version the schema is generated from. Omit to use the
+  // extension's bundled default (v1.34.1 in redhat.vscode-yaml 1.24.0).
+  // "yaml.kubernetesVersion": "v1.31.0",
+
+  "yaml.schemaStore.enable": true,
+  "yaml.completion": true,
+  "yaml.validate": true
+}

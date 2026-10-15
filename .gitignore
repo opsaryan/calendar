@@ -1,0 +1,31 @@
+# Dependencies
+node_modules
+
+# Env files (templates are committed)
+.env
+.env.development
+.env.production
+.env.test
+*.local
+
+# Build output
+dist
+dist-ssr
+coverage
+
+# Logs
+*.log
+
+# Editor / OS
+.idea
+.DS_Store
+*.sw?
+
+# Local Claude settings
+.claude/settings.local.json
+
+# Jest snapshots
+__snapshots__
+
+# Turborepo
+.turbo

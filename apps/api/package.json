@@ -1,0 +1,27 @@
+{
+  "name": "@calendar/api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Calendar app REST API",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch --env-file=.env index.js",
+    "start": "node --env-file=.env index.js",
+    "test": "node --test --test-concurrency=1 \"tests/**/*.test.js\"",
+    "test:coverage": "node --test --test-concurrency=1 --experimental-test-coverage \"tests/**/*.test.js\""
+  },
+  "dependencies": {
+    "bcryptjs": "2.4.3",
+    "cors": "2.8.5",
+    "express": "4.21.2",
+    "express-validator": "7.2.1",
+    "jsonwebtoken": "9.0.2",
+    "mongoose": "8.9.5"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "10.1.4",
+    "prettier": "3.4.2",
+    "supertest": "7.0.0"
+  }
+}

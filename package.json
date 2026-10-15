@@ -1,0 +1,18 @@
+{
+  "name": "calendar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Calendar app monorepo (Express API + React web client)",
+  "packageManager": "pnpm@12.10.1",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "build:web": "turbo run build:api --filter=@calendar/web",
+    "test": "turbo run test",
+    "test:api": "turbo run test --filter=@calendar/api",
+    "test:web": "turbo run test --filter=@calendar/web"
+  },
+  "devDependencies": {
+    "turbo": "2.11.8"
+  }
+}
