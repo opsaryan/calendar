@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calendar-api-d
+  labels:
+    type: calendar-api-d
+spec:
+  selector:
+    matchLabels:
+      type: calendar-api-p
+  template:
+    metadata:
+      name: calendar-api-p
+      labels:
+        type: calendar-api-p
+    spec:
+      containers:
+        - name: calendar-api
+          image: aryandocker001/calendar-api:latest
+          env: 
+            - name: PORT
+              value: "8080"
+            - name: SECRET_JWT_SEED
+              value: vuNJS5WJ5t5gpIWmwobB+ZVugbMeh4I8Xa5FBtUmKbtkpjTw387+0C0jAtF9Rqql
+            - name: DB_CONN
+              value: mongodb://mongo-svc:27017/
+          resources:
+            requests:
+              memory: 200Mi
+              cpu: 10m
+            limits:
+              memory: 300Mi
+              cpu: 500m
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: mongo-d
+  labels:
+    type: mongo-d
+spec:
+  selector:
+    matchLabels:
+      type: mongo-p
+  template:
+    metadata:
+      name: mongo-p
+      labels:
+        type: mongo-p
+    spec:
+      containers:
+        - name: mongo
+          image: mongo:latest
+          ports:
+            - containerPort: 27017
+          resources:
+            requests:
+              memory: 200Mi
+              cpu: 10m
+            limits:
+              memory: 300Mi
+              cpu: 500m
