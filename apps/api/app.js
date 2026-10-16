@@ -8,9 +8,6 @@ const app = express();
 // CORS
 app.use(cors());
 
-// Public directory
-app.use(express.static('public'));
-
 // Body parse middleware
 app.use(express.json());
 
@@ -27,9 +24,12 @@ app.get('/health', (req, res) => {
   });
 });
 
-// Public content route
-app.get('*', (req, res) => {
-  res.sendFile(import.meta.dirname + '/public/index.html');
+// Unknown routes
+app.use((req, res) => {
+  res.status(404).json({
+    ok: false,
+    msg: 'Route not found',
+  });
 });
 
 export default app;

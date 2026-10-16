@@ -11,4 +11,11 @@ describe('App', () => {
     assert.equal(res.status, 200);
     assert.deepEqual(res.body, { ok: true, msg: 'API is running' });
   });
+
+  test('unknown routes return a JSON 404', async () => {
+    const res = await request(app).get('/calendar');
+
+    assert.equal(res.status, 404);
+    assert.deepEqual(res.body, { ok: false, msg: 'Route not found' });
+  });
 });

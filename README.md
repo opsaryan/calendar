@@ -17,7 +17,8 @@ Monorepo with an Express + MongoDB API and a React client.
 pnpm workspaces + [Turborepo](https://turborepo.com). One `pnpm-lock.yaml` at the root; dependencies are
 listed in each app's own `package.json`.
 
-The API also serves the production build of the web client from `apps/api/public`.
+The API and the web client are deployed separately. The client is a static build (`apps/web/dist`) served by
+any static host; it calls the API at `VITE_API_URL` (set at build time).
 
 ## Quick start
 
@@ -38,7 +39,6 @@ pnpm dev           # api on :4000, web on :5173
 | ----------- | ------------------------------------------------------------------- |
 | `dev`       | API (`node --watch`) + Vite dev server                              |
 | `build`     | Build every package that has a `build` script                      |
-| `build:web` | Build the client into `apps/api/public` (API URL `/api`, same host) |
 | `test`      | All tests (cached by turbo)                                         |
 | `test:api`  | API tests (in-memory MongoDB, no setup needed)                      |
 | `test:web`  | Client tests (API calls mocked, no setup needed)                    |
@@ -72,5 +72,5 @@ All routes are under `/api`. Event routes need the `x-token` header (JWT from lo
 
 ## Deploy
 
-- **Docker** – `apps/api/Dockerfile` (distroless Node 24). Run `pnpm build:web` first so the client is bundled.
+- **Docker** – `apps/api/Dockerfile` (distroless Node 24).
 - **Kubernetes** – manifests in `apps/api/manifests` (API + MongoDB).

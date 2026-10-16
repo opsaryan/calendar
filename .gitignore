@@ -3,6 +3,7 @@ node_modules
 
 # Env files (templates are committed)
 .env
+.env.docker
 .env.development
 .env.production
 .env.test

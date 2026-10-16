@@ -7,7 +7,6 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
-    "build:web": "turbo run build:api --filter=@calendar/web",
     "test": "turbo run test",
     "test:api": "turbo run test --filter=@calendar/api",
     "test:web": "turbo run test --filter=@calendar/web"
