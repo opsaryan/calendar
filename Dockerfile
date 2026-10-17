@@ -51,7 +51,7 @@ COPY --from=deps /deps/ .
 
 COPY --from=pruner /prune/out/full/ . 
 
-CMD [ "apps/api/app.js" ]
+CMD [ "apps/api/index.js" ]
 
 
 FROM nginx:1.31.7-alpine AS frontend
