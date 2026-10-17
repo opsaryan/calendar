@@ -8,7 +8,7 @@ COPY . .
 
 ARG PACKAGE
 
-RUN pnx turbo prune ${PACKAGE}
+RUN pnx turbo prune ${PACKAGE} --docker
 
 
 FROM node:24-bookworm-slim AS deps
