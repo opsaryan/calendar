@@ -15,7 +15,7 @@ jobs:
               id: "filter-path"
               with:
                 token: ${{ secrets.GITHUB_TOKEN }}
-                filters: .github/utils/path-filter.yaml
+                filters: ./.github/utils/path-filter.yaml
     
     tests:
         runs-on: ubuntu-24.04
