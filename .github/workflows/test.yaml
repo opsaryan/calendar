@@ -1,0 +1,38 @@
+name: Test
+
+on: 
+    push: 
+        branches: [main]
+        
+jobs:
+    filter-path:
+        runs-on: ubuntu-24.04
+        outputs: 
+            services: ${{ steps.filter-path.outputs.changes }}
+        steps:
+            - name: "Filter Changes"
+              uses: "dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d"
+              id: "filter-path"
+              with:
+                token: ${{ secrets.GITHUB_TOKEN }}
+                filters: .github/utils/path-filter.yaml
+    
+    tests:
+        runs-on: ubuntu-24.04
+        needs: filter-path
+        if: ${{ needs.filter-path.outputs.services != '[]' && needs.filter-path.outputs.services != '' }}
+        strategy:
+            matrix:
+                service: ${{ fromJson(needs.filter-path.outputs.services) }}
+        steps:
+            - name: "Checkout Source"
+              uses: "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+            - name: "Setup Node"
+              uses: "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1"
+              with: 
+                node-version-file: package.json
+                cache: pnpm
+            - name: "Install Dependencies"
+              run: pnpm install --frozen-lockfile
+            - name: "Run Tests"
+              run: "pnpm run test:${{ matrix.service }}"
