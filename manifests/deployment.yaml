@@ -62,3 +62,32 @@ spec:
             limits:
               memory: 300Mi
               cpu: 500m
+        
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calendar-web-d
+  labels:
+    type: calendar-web-d
+spec: 
+  selector:
+    matchLabels:
+      type: calendar-web-p
+    template:
+      metadata:
+        name: calendar-web-p
+        labels:
+          type: calendar-web-p
+      spec:
+        containers:
+          - name: calendar-web 
+            image: aryandocker001/calendar-web:latest
+            resources:
+              requests:
+                memory: 200Mi
+                cpu: 10m
+              limits:
+                memory: 300Mi
+                cpu: 500m

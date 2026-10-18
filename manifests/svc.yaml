@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    type: mongo-svc
+  name: mongo-svc
+spec:
+  ports:
+  - port: 27017
+    protocol: TCP
+    targetPort: 27017
+  selector:
+    type: mongo-p
+
+---
+
+apiVersion: v1
+kind: Service
+metadata: 
+  labels:
+    type: api-svc
+  name: api-svc
+spec: 
+  ports:
+  - port: 80
+    protcol: TCP
+    targetPort: 8080
+  selector: 
+    type: calendar-api-p
