@@ -13,7 +13,7 @@ export const CalendarPage = () => {
   const { openDateModal } = useUIStore();
   const [lastview, setLastview] = useState(localStorage.getItem('lastview') || 'month');
 
-  const eventStyleGetter = (event, start, end, isSelected) => {
+  const eventStyleGetter = (event) => {
     const isMyEvent = user.uid === event.user._id || user.uid === event.user.uid;
 
     const style = {
@@ -26,7 +26,7 @@ export const CalendarPage = () => {
     return { style };
   };
 
-  const onDoubleClick = (event) => {
+  const onDoubleClick = () => {
     openDateModal();
   };
 
@@ -42,7 +42,7 @@ export const CalendarPage = () => {
 
   useEffect(() => {
     startLoadingEvents();
-  }, []);
+  }, [startLoadingEvents]);
 
   return (
     <>

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { addHours, differenceInSeconds } from 'date-fns';
 import ReactModal from 'react-modal';
 import DatePicker from 'react-datepicker';
@@ -44,11 +44,14 @@ export const CalendarModal = () => {
     return formValues.title.length > 1 ? 'is-valid' : 'is-invalid';
   }, [formValues.title, formSubmitted]);
 
-  useEffect(() => {
+  // Load the active event into the form when it changes (adjusting state during render, no effect needed)
+  const [prevActiveEvent, setPrevActiveEvent] = useState(activeEvent);
+  if (activeEvent !== prevActiveEvent) {
+    setPrevActiveEvent(activeEvent);
     if (activeEvent !== null) {
       setFormValues({ ...activeEvent });
     }
-  }, [activeEvent]);
+  }
 
   const onInputChange = ({ target }) => {
     setFormValues({

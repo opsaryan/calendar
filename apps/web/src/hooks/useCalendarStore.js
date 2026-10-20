@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import { calendarApi } from '../api';
@@ -54,7 +55,7 @@ export const useCalendarStore = () => {
     }
   };
 
-  const startLoadingEvents = async () => {
+  const startLoadingEvents = useCallback(async () => {
     try {
       const { data } = await calendarApi.get('/events/');
       const events = convertStringEventsToDate(data.events);
@@ -64,7 +65,7 @@ export const useCalendarStore = () => {
     } catch (error) {
       console.log('Error loading events\n', error);
     }
-  };
+  }, [dispatch]);
 
   return {
     // Properties

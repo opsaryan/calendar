@@ -17,7 +17,7 @@ export const validateJWT = (req = request, res = response, next) => {
 
     req.uid = payload.uid;
     req.name = payload.name;
-  } catch (error) {
+  } catch {
     return res.status(401).json({
       ok: false,
       msg: 'Token not valid or expired',

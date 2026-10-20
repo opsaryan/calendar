@@ -30,6 +30,7 @@ const EventSchema = Schema(
 
 // Schema overwrite, remove __v and rename _id to id
 EventSchema.method('toJSON', function () {
+  // eslint-disable-next-line no-unused-vars -- __v pulled out to drop it
   const { __v, _id, ...object } = this.toObject();
   object.id = _id;
   return object;

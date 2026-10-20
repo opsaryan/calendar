@@ -12,7 +12,7 @@ export const AppRouter = () => {
 
   useEffect(() => {
     checkAuthToken();
-  }, []);
+  }, [checkAuthToken]);
 
   if (authStatus === "checking") {
     return <Loader />;

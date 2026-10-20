@@ -4,7 +4,7 @@ import { useAuthStore, useForm } from '../../hooks';
 import './LoginPage.css';
 
 // Regex expressions for form validation
-const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 const passwordRegex = /^(?=.*\d)(?=.*[a-zA-Z]).{5,}$/;
 
 const loginFormFields = {

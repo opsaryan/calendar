@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { calendarApi } from '../api';
 import { checking, cleanEventsOnLogout, clearErrorMessage, login, logout } from '../store';
@@ -6,13 +7,16 @@ export const useAuthStore = () => {
   const { status, user, errorMessage } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
-  const loginUser = ({ token, name, uid }) => {
-    localStorage.setItem('token', token);
-    // time when token was generated:
-    localStorage.setItem('token-init-time', new Date().getTime());
+  const loginUser = useCallback(
+    ({ token, name, uid }) => {
+      localStorage.setItem('token', token);
+      // time when token was generated:
+      localStorage.setItem('token-init-time', new Date().getTime());
 
-    dispatch(login({ name, uid }));
-  };
+      dispatch(login({ name, uid }));
+    },
+    [dispatch],
+  );
 
   const startLogin = async ({ email, password }) => {
     dispatch(checking());
@@ -23,7 +27,7 @@ export const useAuthStore = () => {
 
       loginUser({ token: data.token, name: data.name, uid: data.uid });
       //
-    } catch (error) {
+    } catch {
       dispatch(logout('Incorrect credentials'));
 
       setTimeout(() => {
@@ -58,7 +62,7 @@ export const useAuthStore = () => {
     }
   };
 
-  const checkAuthToken = async () => {
+  const checkAuthToken = useCallback(async () => {
     const token = localStorage.getItem('token');
 
     if (!token) return dispatch(logout());
@@ -68,11 +72,11 @@ export const useAuthStore = () => {
 
       loginUser({ token: data.token, name: data.name, uid: data.uid });
       //
-    } catch (error) {
+    } catch {
       localStorage.clear();
       dispatch(logout());
     }
-  };
+  }, [dispatch, loginUser]);
 
   const startLogout = () => {
     dispatch(checking());
