@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests on AppRouter component Should render login screen if not-authenticated 1`] = `
+<div>
+  <div
+    class="container login-container"
+  >
+    <div
+      class="row justify-content-around"
+    >
+      <div
+        class="col-md-5 login-form-1"
+      >
+        <h3>
+          Login
+        </h3>
+        <form>
+          <div
+            class="form-group mb-2"
+          >
+            <input
+              class="form-control"
+              name="loginEmail"
+              placeholder="Email"
+              type="text"
+              value=""
+            />
+            <p
+              style="color: red;"
+            />
+          </div>
+          <div
+            class="form-group mb-2"
+          >
+            <input
+              class="form-control"
+              name="loginPassword"
+              placeholder="Password"
+              type="password"
+              value=""
+            />
+            <p
+              style="color: red;"
+            />
+          </div>
+          <div
+            class="form-group mb-2 mt-4"
+          >
+            <input
+              class="btnSubmit"
+              type="submit"
+              value="Login"
+            />
+          </div>
+        </form>
+      </div>
+      <div
+        class="col-md-5 login-form-2"
+      >
+        <h3>
+          Register
+        </h3>
+        <form>
+          <div
+            class="form-group mb-2"
+          >
+            <input
+              class="form-control"
+              name="registerName"
+              placeholder="Name"
+              type="text"
+              value=""
+            />
+            <p
+              style="color: rgb(204, 204, 204);"
+            />
+          </div>
+          <div
+            class="form-group mb-2"
+          >
+            <input
+              class="form-control"
+              name="registerEmail"
+              placeholder="Email"
+              type="email"
+              value=""
+            />
+            <p
+              style="color: rgb(204, 204, 204);"
+            />
+          </div>
+          <div
+            class="form-group mb-2"
+          >
+            <input
+              class="form-control"
+              name="registerPassword"
+              placeholder="Password"
+              type="password"
+              value=""
+            />
+            <p
+              style="color: rgb(204, 204, 204);"
+            />
+          </div>
+          <div
+            class="form-group mb-2"
+          >
+            <input
+              class="form-control"
+              name="registerPassword2"
+              placeholder="Repeat the password"
+              type="password"
+              value=""
+            />
+          </div>
+          <div
+            class="form-group mb-2 mt-4"
+          >
+            <input
+              class="btnSubmit"
+              type="submit"
+              value="Create account"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;

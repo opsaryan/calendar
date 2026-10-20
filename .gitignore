@@ -25,9 +25,6 @@ coverage
 # Local Claude settings
 .claude/settings.local.json
 
-# Jest snapshots
-__snapshots__
-
 # Turborepo
 .turbo
 out/
