@@ -9,9 +9,21 @@
     "build": "turbo run build",
     "test": "turbo run test",
     "test:api": "turbo run test --filter=@calendar/api",
-    "test:web": "turbo run test --filter=@calendar/web"
+    "test:web": "turbo run test --filter=@calendar/web",
+    "lint": "turbo run lint",
+    "lint:api": "turbo run lint --filter=@calendar/api",
+    "lint:web": "turbo run lint --filter=@calendar/web",
+    "lint:fix": "turbo run lint:fix",
+    "lint:fix:api": "turbo run lint:fix --filter=@calendar/api",
+    "lint:fix:web": "turbo run lint:fix --filter=@calendar/web"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.13.0",
     "turbo": "2.11.8"
   }
 }
