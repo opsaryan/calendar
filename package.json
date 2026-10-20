@@ -4,6 +4,9 @@
   "private": true,
   "description": "Calendar app monorepo (Express API + React web client)",
   "packageManager": "pnpm@12.10.1",
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
