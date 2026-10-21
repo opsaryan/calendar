@@ -11,6 +11,8 @@
     },
     "lint": {},
     "lint:fix": {},
+    "format": {},
+    "format:fix": {},
     "dev": {
       "cache": false,
       "persistent": true

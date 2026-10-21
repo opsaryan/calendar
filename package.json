@@ -7,6 +7,12 @@
   "engines": {
     "node": "24.x"
   },
+  "lint-staged": {
+    "apps/**/*.{js,jsx}": [
+      "eslint --fix"
+    ],
+    "*.{md,json,yml,yaml}": "prettier --write"
+  },
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
@@ -18,15 +24,26 @@
     "lint:web": "turbo run lint --filter=@calendar/web",
     "lint:fix": "turbo run lint:fix",
     "lint:fix:api": "turbo run lint:fix --filter=@calendar/api",
-    "lint:fix:web": "turbo run lint:fix --filter=@calendar/web"
+    "lint:fix:web": "turbo run lint:fix --filter=@calendar/web",
+    "format": "turbo run format",
+    "format:api": "turbo run format --filter=@calendar/api",
+    "format:web": "turbo run format --filter=@calendar/web",
+    "format:fix": "turbo run format:fix",
+    "format:fix:api": "turbo run format:fix --filter=@calendar/api",
+    "format:fix:web": "turbo run format:fix --filter=@calendar/web",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",
     "eslint": "^9.39.5",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.7",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
     "globals": "^17.13.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
+    "prettier": "3.4.2",
     "turbo": "2.11.8"
   }
 }

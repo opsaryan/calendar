@@ -2,7 +2,7 @@ import js from '@eslint/js';
 import globals from 'globals';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
-import prettier from 'eslint-config-prettier';
+import prettierRecommended from 'eslint-plugin-prettier/recommended';
 
 export default [
   { ignores: ['**/dist', '**/coverage', '**/node_modules', '**/.turbo'] },
@@ -26,5 +26,5 @@ export default [
   },
   { files: ['apps/web/tests/mocks/**'], languageOptions: { sourceType: 'commonjs' } },
   { files: ['**/*.cjs'], languageOptions: { sourceType: 'commonjs', globals: globals.node } },
-  prettier, // keep last: turns off style rules that clash with Prettier
+  prettierRecommended,
 ];
