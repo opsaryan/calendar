@@ -1,11 +1,11 @@
-import { TextEncoder, TextDecoder } from 'node:util'
+import { TextEncoder, TextDecoder } from 'node:util';
 
 if (!global.TextEncoder) {
-  global.TextEncoder = TextEncoder
+  global.TextEncoder = TextEncoder;
 }
 
 if (!global.TextDecoder) {
-  global.TextDecoder = TextDecoder
+  global.TextDecoder = TextDecoder;
 }
 
 // import.meta.env is not available in jest, tests use a fixed config

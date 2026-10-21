@@ -12,7 +12,9 @@ const event = {
 };
 
 const createUser = async (email) => {
-  const res = await request(app).post('/api/auth/new').send({ name: email.split('@')[0], email, password: 'secret123' });
+  const res = await request(app)
+    .post('/api/auth/new')
+    .send({ name: email.split('@')[0], email, password: 'secret123' });
   return res.body;
 };
 

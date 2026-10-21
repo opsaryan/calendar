@@ -20,7 +20,7 @@ router.post(
     check('end', 'End date is not valid').custom(isDate),
     validateFields,
   ],
-  createEvent
+  createEvent,
 );
 
 router.get('/', getEvents);
@@ -33,7 +33,7 @@ router.put(
     check('end', 'End date is not valid').custom(isDate),
     validateFields,
   ],
-  updateEvent
+  updateEvent,
 );
 
 router.delete('/:id', deleteEvent);

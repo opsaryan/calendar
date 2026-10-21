@@ -14,10 +14,7 @@ const loginFormFields = {
 
 const loginFormValidations = {
   loginEmail: [(email) => emailRegex.test(email), 'Email is not valid'],
-  loginPassword: [
-    (pass) => passwordRegex.test(pass),
-    '5+ characters long, at least one letter and one number',
-  ],
+  loginPassword: [(pass) => passwordRegex.test(pass), '5+ characters long, at least one letter and one number'],
 };
 
 const registerFormFields = {
@@ -30,10 +27,7 @@ const registerFormFields = {
 const registerFormValidations = {
   registerName: [(name) => name.length > 2, 'Name length must be greater than 2 characters'],
   registerEmail: [(email) => emailRegex.test(email), 'Email is not valid'],
-  registerPassword: [
-    (pass) => passwordRegex.test(pass),
-    '5+ characters long, at least one letter and one number',
-  ],
+  registerPassword: [(pass) => passwordRegex.test(pass), '5+ characters long, at least one letter and one number'],
 };
 
 export const LoginPage = () => {
@@ -102,94 +96,85 @@ export const LoginPage = () => {
 
   return (
     // Login form
-    <div className='container login-container'>
-      <div className='row justify-content-around'>
-        <div className='col-md-5 login-form-1'>
+    <div className="container login-container">
+      <div className="row justify-content-around">
+        <div className="col-md-5 login-form-1">
           <h3>Login</h3>
           <form onSubmit={onLoginSubmit}>
-            <div className='form-group mb-2'>
-              <input
-                type='text'
-                className='form-control'
-                placeholder='Email'
-                name='loginEmail'
-                value={loginEmail}
-                onChange={onLoginInputChange}
-              />
+            <div className="form-group mb-2">
+              <input type="text" className="form-control" placeholder="Email" name="loginEmail" value={loginEmail} onChange={onLoginInputChange} />
               <p style={{ color: 'red' }}>{isLoginFormSubmitted ? loginEmailValid : ''}</p>
             </div>
-            <div className='form-group mb-2'>
+            <div className="form-group mb-2">
               <input
-                type='password'
-                className='form-control'
-                placeholder='Password'
-                name='loginPassword'
+                type="password"
+                className="form-control"
+                placeholder="Password"
+                name="loginPassword"
                 value={loginPassword}
                 onChange={onLoginInputChange}
               />
               <p style={{ color: 'red' }}>{isLoginFormSubmitted ? loginPasswordValid : ''}</p>
             </div>
-            <div className='form-group mb-2 mt-4'>
-              <input type='submit' className='btnSubmit' value='Login' />
+            <div className="form-group mb-2 mt-4">
+              <input type="submit" className="btnSubmit" value="Login" />
             </div>
           </form>
         </div>
 
         {/* Register form */}
-        <div className='col-md-5 login-form-2'>
+        <div className="col-md-5 login-form-2">
           <h3>Register</h3>
           <form onSubmit={onRegisterSubmit}>
-            <div className='form-group mb-2'>
+            <div className="form-group mb-2">
               <input
-                type='text'
-                className='form-control'
-                placeholder='Name'
-                name='registerName'
+                type="text"
+                className="form-control"
+                placeholder="Name"
+                name="registerName"
                 value={registerName}
                 onChange={onRegisterInputChange}
               />
               <p style={{ color: '#ccc' }}>{isRegisterFormSubmitted ? registerNameValid : ''}</p>
             </div>
 
-            <div className='form-group mb-2'>
+            <div className="form-group mb-2">
               <input
-                type='email'
-                className='form-control'
-                placeholder='Email'
-                name='registerEmail'
+                type="email"
+                className="form-control"
+                placeholder="Email"
+                name="registerEmail"
                 value={registerEmail}
                 onChange={onRegisterInputChange}
               />
               <p style={{ color: '#ccc' }}>{isRegisterFormSubmitted ? registerEmailValid : ''}</p>
             </div>
 
-            <div className='form-group mb-2'>
+            <div className="form-group mb-2">
               <input
-                type='password'
-                className='form-control'
-                placeholder='Password'
-                name='registerPassword'
+                type="password"
+                className="form-control"
+                placeholder="Password"
+                name="registerPassword"
                 value={registerPassword}
                 onChange={onRegisterInputChange}
               />
-              <p style={{ color: '#ccc' }}>
-                {isRegisterFormSubmitted ? registerPasswordValid : ''}
-              </p>
+              <p style={{ color: '#ccc' }}>{isRegisterFormSubmitted ? registerPasswordValid : ''}</p>
             </div>
 
-            <div className='form-group mb-2'>
+            <div className="form-group mb-2">
               <input
-                type='password'
-                className='form-control'
-                placeholder='Repeat the password'
-                name='registerPassword2'
+                type="password"
+                className="form-control"
+                placeholder="Repeat the password"
+                name="registerPassword2"
                 value={registerPassword2}
                 onChange={onRegisterInputChange}
               />
             </div>
 
-            <div className='form-group mb-2 mt-4'>
-              <input type='submit' className='btnSubmit' value='Create account' />
+            <div className="form-group mb-2 mt-4">
+              <input type="submit" className="btnSubmit" value="Create account" />
             </div>
           </form>
         </div>

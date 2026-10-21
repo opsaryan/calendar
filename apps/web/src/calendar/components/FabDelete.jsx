@@ -8,12 +8,12 @@ export const FabDelete = () => {
 
   return (
     <button
-      aria-label='btn-delete'
-      className='btn btn-danger fab-danger'
+      aria-label="btn-delete"
+      className="btn btn-danger fab-danger"
       onClick={handleDeleteEvent}
       style={{ display: hasEventSelected && !isDateModalOpen ? '' : 'none' }}
     >
-      <i className='fas fa-trash-alt'></i>
+      <i className="fas fa-trash-alt"></i>
     </button>
   );
 };

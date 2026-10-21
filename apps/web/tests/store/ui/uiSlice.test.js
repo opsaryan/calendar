@@ -1,9 +1,4 @@
-import {
-  onCloseDateModal,
-  onOpenDateModal,
-  toggleModal,
-  uiSlice,
-} from '../../../src/store/ui/uiSlice';
+import { onCloseDateModal, onOpenDateModal, toggleModal, uiSlice } from '../../../src/store/ui/uiSlice';
 
 describe('Tests on ui slice', () => {
   test('Should return default state', () => {

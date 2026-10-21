@@ -67,11 +67,4 @@ export const calendarSlice = createSlice({
   },
 });
 
-export const {
-  activateEvent,
-  addNewEvent,
-  updateEvent,
-  onDeleteEvent,
-  loadEvents,
-  cleanEventsOnLogout,
-} = calendarSlice.actions;
+export const { activateEvent, addNewEvent, updateEvent, onDeleteEvent, loadEvents, cleanEventsOnLogout } = calendarSlice.actions;

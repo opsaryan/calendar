@@ -52,8 +52,8 @@ export const CalendarPage = () => {
         localizer={localizer}
         events={events}
         defaultView={lastview}
-        startAccessor='start'
-        endAccessor='end'
+        startAccessor="start"
+        endAccessor="end"
         style={{ height: 'calc(100vh - 100px)' }}
         eventPropGetter={eventStyleGetter}
         components={{

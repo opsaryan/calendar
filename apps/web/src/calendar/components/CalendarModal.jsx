@@ -100,70 +100,70 @@ export const CalendarModal = () => {
       isOpen={isDateModalOpen}
       onRequestClose={onCloseModal}
       style={customStyles}
-      className='modal'
-      overlayClassName='modal-fondo'
+      className="modal"
+      overlayClassName="modal-fondo"
       closeTimeoutMS={200}
     >
       <h1> New Event </h1>
       <hr />
-      <form className='container' onSubmit={onSubmit}>
-        <div className='form-group mb-2 d-flex flex-column'>
+      <form className="container" onSubmit={onSubmit}>
+        <div className="form-group mb-2 d-flex flex-column">
           <label>Start date and hour</label>
           <DatePicker
             selected={formValues.start}
-            className='form-control'
+            className="form-control"
             onChange={(event) => onDateChange(event, 'start')}
-            dateFormat='Pp'
+            dateFormat="Pp"
             showTimeSelect
           />
         </div>
 
-        <div className='form-group mb-2 d-flex flex-column'>
+        <div className="form-group mb-2 d-flex flex-column">
           <label>End date and hour</label>
           <DatePicker
             minDate={formValues.start}
             selected={formValues.end}
-            className='form-control'
+            className="form-control"
             onChange={(event) => onDateChange(event, 'end')}
-            dateFormat='Pp'
+            dateFormat="Pp"
             showTimeSelect
           />
         </div>
 
         <hr />
-        <div className='form-group mb-2'>
+        <div className="form-group mb-2">
           <label>Title and notes</label>
           <input
-            type='text'
+            type="text"
             className={`form-control ${titleClass}`}
-            placeholder='Event title'
-            name='title'
-            autoComplete='off'
+            placeholder="Event title"
+            name="title"
+            autoComplete="off"
             value={formValues.title}
             onChange={onInputChange}
           />
-          <small id='emailHelp' className='form-text text-muted'>
+          <small id="emailHelp" className="form-text text-muted">
             A short description
           </small>
         </div>
 
-        <div className='form-group mb-2'>
+        <div className="form-group mb-2">
           <textarea
-            type='text'
-            className='form-control'
-            placeholder='Notes'
-            rows='5'
-            name='notes'
+            type="text"
+            className="form-control"
+            placeholder="Notes"
+            rows="5"
+            name="notes"
             value={formValues.notes}
             onChange={onInputChange}
           ></textarea>
-          <small id='emailHelp' className='form-text text-muted'>
+          <small id="emailHelp" className="form-text text-muted">
             Additional Information
           </small>
         </div>
 
-        <button type='submit' className='btn btn-outline-primary btn-block'>
-          <i className='far fa-save'></i>
+        <button type="submit" className="btn btn-outline-primary btn-block">
+          <i className="far fa-save"></i>
           <span> Save</span>
         </button>
       </form>

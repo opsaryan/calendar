@@ -8,13 +8,7 @@ import {
   updateEvent,
 } from '../../../src/store/calendar/calendarSlice';
 
-import {
-  calendarWithActiveEventState,
-  calendarWithEventsState,
-  events,
-  initialState,
-  newEvent,
-} from '../../fixtures/calendarStates';
+import { calendarWithActiveEventState, calendarWithEventsState, events, initialState, newEvent } from '../../fixtures/calendarStates';
 
 describe('Tests calendar slice', () => {
   test('should return initial state', () => {

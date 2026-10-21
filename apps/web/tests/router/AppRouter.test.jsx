@@ -39,7 +39,7 @@ describe('Tests on AppRouter component', () => {
     const { container } = render(
       <MemoryRouter>
         <AppRouter />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(screen.findByText('Login')).toBeTruthy();
@@ -54,7 +54,7 @@ describe('Tests on AppRouter component', () => {
     render(
       <MemoryRouter>
         <AppRouter />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(screen.getByText('Calendar Page')).toBeTruthy();

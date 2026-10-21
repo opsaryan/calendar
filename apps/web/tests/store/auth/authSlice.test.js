@@ -1,17 +1,6 @@
-import {
-  authSlice,
-  checking,
-  clearErrorMessage,
-  login,
-  logout,
-} from '../../../src/store/auth/authSlice';
+import { authSlice, checking, clearErrorMessage, login, logout } from '../../../src/store/auth/authSlice';
 
-import {
-  authenticatedState,
-  defaultState,
-  notAuthenticatedState,
-  notAuthenticatedStateWithErrorMessage,
-} from '../../fixtures/authStates';
+import { authenticatedState, defaultState, notAuthenticatedState, notAuthenticatedStateWithErrorMessage } from '../../fixtures/authStates';
 import { testUserCredentials } from '../../fixtures/testUser';
 
 describe('Tests on auth slice', () => {
