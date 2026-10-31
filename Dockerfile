@@ -43,7 +43,7 @@ RUN pnx turbo run build
 RUN ls .
 
 
-FROM gcr.io/distroless/nodejs24-debian13:nonroot AS backend 
+FROM gcr.io/distroless/nodejs24-debian13:nonroot AS api
 
 WORKDIR /app/
 
@@ -54,7 +54,7 @@ COPY --from=pruner /prune/out/full/ .
 CMD [ "apps/api/index.js" ]
 
 
-FROM nginx:1.31.7-alpine AS frontend
+FROM nginx:1.31.7-alpine AS web
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
